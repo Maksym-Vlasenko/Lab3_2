@@ -8,17 +8,20 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        Main main = new Main();
-        Phone[] subscribers = main.createSubscribers();
-        Phone[] subscribers1 = main.getSubscribersWithInCityCallsDurationGreaterThan(subscribers, 20);
+        new Main().run();
+    }
+
+    private void run() {
+        Phone[] subscribers = createSubscribers();
+        Phone[] subscribers1 = getSubscribersWithInCityCallsDurationGreaterThan(subscribers, 20);
         System.out.printf("Subscribers with in city calls duration greater than %d minutes:%n", 20);
-        main.printSubscribers(subscribers1);
-        Phone[] subscribers2 = main.getSubscribersWhoUsedInterCityCalls(subscribers);
+        printSubscribers(subscribers1);
+        Phone[] subscribers2 = getSubscribersWhoUsedInterCityCalls(subscribers);
         System.out.println("Subscribers who used inter city calls: ");
-        main.printSubscribers(subscribers2);
-        Phone[] subscribers3 = main.getSubscribersWhomAccountNumberIsBetween(subscribers, 1000, 5000);
+        printSubscribers(subscribers2);
+        Phone[] subscribers3 = getSubscribersWhomAccountNumberIsBetween(subscribers, 1000, 5000);
         System.out.printf("Subscribers whom account number is between %d and %d:%n", 1000, 5000);
-        main.printSubscribers(subscribers3);
+        printSubscribers(subscribers3);
     }
 
     private void printSubscribers(Phone[] subscribers) {
